@@ -24,13 +24,17 @@ $printer = new Printer($connector);
 //PARA IMPRIMIR TODO CENTRADO
 $printer->setJustification(Printer::JUSTIFY_CENTER);
 
-// $logo = EscposImage::load('img/logo.png', false);
+$logo = EscposImage::load('img/logo-dark.png', false);
 
 $printer->bitImage($logo);
-$printer->text('1193429241 - 3'."\n");
-$printer->text('Regimen Simplificado - 3'."\n");
-$printer->text('Sucursal: '.$_GET['sucursal']['nombre']." \n");
-$printer->text('Telefono: 3054026670'." \n");
+$printer->text("\n");
+$printer->text('NIT: 891.100.299-7 TEL: 018000933737'."\n");
+$printer->text('DIR: Av. 26 No. 4-82, Neiva - Huila'."\n\n");
+$printer->setJustification(Printer::JUSTIFY_LEFT);
+$printer->text('Pasajero: Jazbleidy Perdomo'." \n");
+$printer->text('Origen: BOGOTA SUR   Destino: ALTAMIRA'." \n");
+$printer->text('Tiquete: ONL-4647 Puesto: **'." \n");
+$printer->text('Categoria: PREFERENCIAL VIP Vehículo:***'." \n");
 $printer->setTextSize(2,3);
 
 //CABECERA FACTURA
