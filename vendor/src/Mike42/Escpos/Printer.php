@@ -150,17 +150,17 @@ class Printer
     /**
      * Use Font A, when used with Printer::setFont
      */
-    const FONT_A = 0;
+    const FONT_A = 0; //TAMAñO DE LETRA GRANDE
 
     /**
      * Use Font B, when used with Printer::setFont
      */
-    const FONT_B = 1;
+    const FONT_B = 1; //TAMAñO DE LETRA MEDIANO
 
     /**
      * Use Font C, when used with Printer::setFont
      */
-    const FONT_C = 2;
+    const FONT_C = 2; //TAMAñO DE LETRA PEQUEÑO
 
     /**
      * Use default (high density) image size, when used with Printer::graphics,
