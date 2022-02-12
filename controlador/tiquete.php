@@ -7,10 +7,10 @@ try {
     try {
         include_once('../modelo/head.php');
         foreach ($_POST['elementos'] as $key => $elemento) {
-            if ($elemento['parametro']==null) {
+            if ($elemento['valor']==null) {
                 $printer->{$elemento['metodo']}();
             }else{
-                $printer->{$elemento['metodo']}($elemento['parametro']);
+                $printer->{$elemento['metodo']}($elemento['valor']);
             }
         }
     
