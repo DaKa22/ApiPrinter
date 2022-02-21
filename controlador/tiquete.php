@@ -32,15 +32,13 @@ try {
     // $printer->text("\n");
     $printer->cut();
 }catch (Exception $th) {
-    return var_dump([
+    echo json_encode(var_dump([
         'STATUS'=> 'ERROR',
         'MENSAJE 1'=>'ERROR EN LA API DE IMPRESION (TIQUETE)',
         'MENSAJE 2'=> $th
-    ]);
+    ]));
 }finally{
     $printer->close();
+    echo json_encode('paso pruebaaaaa');
 }
-
-
-
 ?>

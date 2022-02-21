@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 
 header('content-type: application/json; charset=utf-8');
-
+error_reporting(0);
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../vendor/src/LucidFrame/Console/ConsoleTable.php'; //Nota: si renombraste la carpeta a algo diferente de "vendor" cambia el nombre en esta línea
 
