@@ -2,7 +2,6 @@
 use Mike42\Escpos\Printer;
 try {
     include_once('../modelo/head.php');
-     var_dump( $_POST['elementos']);
     foreach ($_POST['elementos'] as $key => $elemento) {
         if ($elemento['valor']==null) {
             $printer->{$elemento['metodo']}();
