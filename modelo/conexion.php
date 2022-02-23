@@ -19,10 +19,10 @@ $jsonData = file_get_contents("php://input");
 $_POST = json_decode($jsonData,true);
 $nombre_impresora = "POS"; 
 
-if ($_POST['os'] == 'Windows' ) {
-    $connector = new WindowsPrintConnector($nombre_impresora);
-} else if($_POST['os'] == 'Linux' || $_POST['os'] == 'MacOS') {
+if ($_POST['os'] == 'Linux' || $_POST['os'] == 'MacOS') {
     $connector = new CupsPrintConnector($nombre_impresora);
+} else {
+    $connector = new WindowsPrintConnector($nombre_impresora);
 }
 $printer = new Printer($connector);
 
