@@ -4,7 +4,7 @@ try {
     include_once('../modelo/head.php');
     foreach ($_POST['elementos'] as $key => $elemento) {
         if ($elemento['condicion']==true) {
-            $printer->{$elemento['metodo']}(new item(substr($elemento['valor'][0], 0, 24),substr($elemento['valor'][1],0,10),$elemento['valor'][2] ));
+            $printer->{$elemento['metodo']}(new item(substr($elemento['valor'][0], 0, 19),substr($elemento['valor'][1],0,14),substr($elemento['valor'][2],0,14),$elemento['valor'][3]));
 
         }else{
             if ($elemento['valor']==null) {
@@ -65,17 +65,18 @@ class item
 
     public function __toString()
     {
-        $rightCols = 10;
-        $midCols = 10;
+        $rightCols = 14;
+        $midCols = 14;
         $leftCols = 20;
-        if ($this -> dollarSign) {
-            $leftCols = $leftCols / 2 - $midCols / 2 - $rightCols / 2 ;
-        }
-        $left = str_pad($this -> valor1, $leftCols) ;
-        $mid = str_pad(''.$this -> valor2, $midCols) ;
+        // if ($this -> dollarSign) {
+        //     $leftCols = $leftCols / 2 - $midCols / 2 - $rightCols / 2 ;
+        // }
+        $left = str_pad('|'.$this -> valor1, $leftCols) ;
+        // $mid = str_pad(''.$this -> valor2, $midCols) ;
 
-        $sign = ($this -> dollarSign ? '$ ' : '');
-        $right = str_pad($sign . $this -> valor3, $rightCols, ' ', STR_PAD_RIGHT);
+        $sign = ($this -> dollarSign ? '|$' : '|');
+        $mid = str_pad($sign . $this -> valor2, $midCols);
+        $right = str_pad($sign . $this -> valor3, $rightCols);
         return "$left$mid$right\n";
     }
 }
