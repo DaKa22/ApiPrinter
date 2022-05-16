@@ -3,11 +3,14 @@ use Mike42\Escpos\Printer;
 try {
     include_once('../modelo/head.php');
     foreach ($_POST['elementos'] as $key => $elemento) {
-        if ($elemento['condicion']==true) {
+        if ($elemento['condicion'] == true) {
             $printer->{$elemento['metodo']}(new item(substr($elemento['valor'][0], 0, 19),substr($elemento['valor'][1],0,14),substr($elemento['valor'][2],0,14),$elemento['valor'][3]));
 
+        }else if($elemento['despacho'] == true) {
+            $printer->{$elemento['metodo']}(new despacho(substr($elemento['valor'][0], 0, 17),substr($elemento['valor'][1],0,20),substr($elemento['valor'][2],0,10),$elemento['valor'][3]));
+
         }else{
-            if ($elemento['valor']==null) {
+            if ($elemento['valor'] == null) {
                 $printer->{$elemento['metodo']}();
             }else{
                 if (is_array($elemento['valor'])) {
@@ -75,6 +78,39 @@ class item
         // $mid = str_pad(''.$this -> valor2, $midCols) ;
 
         $sign = ($this -> dollarSign ? '|$' : '|');
+        $mid = str_pad($sign . $this -> valor2, $midCols);
+        $right = str_pad($sign . $this -> valor3, $rightCols);
+        return "$left$mid$right\n";
+    }
+}
+
+class despacho
+{
+    private $valor1;
+    private $valor2;
+    private $valor3;
+    private $dollarSign;
+
+    public function __construct($valor1 = '', $valor2 = '',$valor3 = '', $dollarSign = false)
+    {
+        $this -> valor1 = $valor1;
+        $this -> valor2 = $valor2;
+        $this -> valor3 = $valor3;
+        $this -> dollarSign = $dollarSign;
+    }
+
+    public function __toString()
+    {
+        $rightCols = 10;
+        $midCols = 21;
+        $leftCols = 17;
+        // if ($this -> dollarSign) {
+        //     $leftCols = $leftCols / 2 - $midCols / 2 - $rightCols / 2 ;
+        // }
+        $left = str_pad('|'.$this -> valor1, $leftCols) ;
+        // $mid = str_pad(''.$this -> valor2, $midCols) ;
+
+        $sign = ($this -> dollarSign ? '|' : '|');
         $mid = str_pad($sign . $this -> valor2, $midCols);
         $right = str_pad($sign . $this -> valor3, $rightCols);
         return "$left$mid$right\n";
