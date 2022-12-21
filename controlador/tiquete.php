@@ -1,5 +1,5 @@
 <?php
-use Mike42\Escpos\Printer;
+
 try {
     include_once('../modelo/head.php');
     foreach ($_POST['elementos'] as $key => $elemento) {
