@@ -19,7 +19,6 @@ if (
 ) {
     throw new ErrorException('No existe payload');
 }
-echo json_encode('aaaa');
 
 $nombre_impresora = 'POS'; 
 
