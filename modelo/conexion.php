@@ -20,7 +20,7 @@ if (
     throw new ErrorException('No existe payload');
 }
 
-$nombre_impresora = 'POS1'; 
+$nombre_impresora = 'POS'; 
 
 use Mike42\Escpos\PrintConnectors\CupsPrintConnector;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
