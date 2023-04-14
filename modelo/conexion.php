@@ -19,7 +19,9 @@ $_POST = json_decode($jsonData,true);
 // ) {
 //     throw new ErrorException('No existe payload');
 // }
-
+if(!$_POST['elementos']){
+    die();
+}
 $nombre_impresora = 'POS'; 
 
 use Mike42\Escpos\PrintConnectors\CupsPrintConnector;
