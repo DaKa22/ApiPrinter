@@ -14,11 +14,11 @@ date_default_timezone_set('America/Bogota');
 $jsonData = file_get_contents('php://input');
 $_POST = json_decode($jsonData,true);
 
-if (
-    !(isset($_POST) && isset($_POST['elementos']))
-) {
-    throw new ErrorException('No existe payload');
-}
+// if (
+//     !(isset($_POST) && isset($_POST['elementos']))
+// ) {
+//     throw new ErrorException('No existe payload');
+// }
 
 $nombre_impresora = 'POS'; 
 
